@@ -15,7 +15,7 @@ import moment from "moment";
 import "moment/dist/locale/ar-dz";
 moment.locale("ar");
 export default function MainContent() {
-  const [loading , setLoading ] = useState(false)
+  const [loading , setLoading ] = useState(true)
   const [currentDate, setCurrentDate] = useState("");
   const [timings, setTimings] = useState({
     //  Fajr:"4:20"
@@ -84,7 +84,7 @@ export default function MainContent() {
       localPrayerIndex = 0;
     }
     setPrayerIndex(localPrayerIndex);
-    setLoading(true)
+    setLoading(false)
     const timeObejct = prayerArray[localPrayerIndex];
     const nextPrayerTime = timings[timeObejct.key];
     let remainingTime = moment(nextPrayerTime, "hh:mm").diff(currentTime);
@@ -111,8 +111,8 @@ export default function MainContent() {
           <h3>{city.name}</h3>
         </Grid>
         <Grid item xs={12} sm={4} md={6}>
-          <h3>متبقي حتي صلاة {loading ?  prayerArray[prayerIndex]?.displayName : "(يرجي الانتظار  )" } </h3>{" "}
-          <h3>{loading ? displayTimer :"(يرجي الانتظار)" }</h3>
+          <h3>متبقي حتي صلاة {loading ?"(يرجي الانتظار  )"  :  prayerArray[prayerIndex]?.displayName } </h3>{" "}
+          <h3>{loading ? "(يرجي الانتظار)"  : displayTimer }</h3>
         </Grid>
       </Grid>
       <Divider
