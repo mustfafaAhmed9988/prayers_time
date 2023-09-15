@@ -112,7 +112,7 @@ export default function MainContent() {
         </Grid>
         <Grid item xs={12} sm={4} md={6}>
           <h3>متبقي حتي صلاة {loading ?  prayerArray[prayerIndex]?.displayName : "(يرجي الانتظار  )" } </h3>{" "}
-          <h3>{displayTimer}</h3>
+          <h3>{loading ? displayTimer :"(يرجي الانتظار)" }</h3>
         </Grid>
       </Grid>
       <Divider
